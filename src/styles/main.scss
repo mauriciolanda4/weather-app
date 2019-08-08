@@ -1,0 +1,298 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+hr {
+  border: 2px solid #666;
+}
+
+body {
+  background: #0779c4;
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+}
+
+.loading {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    background: url('https://weather-test-ncbolivia.s3-sa-east-1.amazonaws.com/loader.gif')
+      no-repeat;
+    background-size: 100%;
+    height: 100px;
+    width: 100px;
+  }
+}
+
+.weather-forecast-wrapper {
+  margin: 0 auto;
+  width: 40%;
+
+  @media only screen and (max-width: 64em) {
+    width: 60%;
+  }
+
+  @media only screen and (max-width: 48em) {
+    width: 100%;
+  }
+
+  header {
+    text-align: center;
+
+    .heading {
+      font-size: 22px;
+      padding: 25px 0 0 0;
+      text-transform: uppercase;
+    }
+  }
+
+  .weather-dashboard {
+    text-align: center;
+
+    .error {
+      display: none;
+    }
+
+    section.controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100px;
+
+      input {
+        font-size: 13px;
+        padding: 10px;
+        display: inline-block;
+        background: #162458;
+        border: none;
+        color: #fff;
+        width: 230px;
+        text-transform: uppercase;
+
+        &::placeholder {
+          color: #fff;
+        }
+
+        &:focus {
+          &::placeholder {
+            color: transparent;
+          }
+        }
+
+        &.search {
+          width: 30px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &.invalid-city {
+      section.controls {
+        input {
+          background: #ff1744;
+        }
+      }
+
+      .error {
+        display: block;
+        padding: 0 0 30px 0;
+      }
+    }
+  }
+
+  .forecast-tiles {
+    width: 100%;
+
+    .forecast-tile {
+      min-height: 100px;
+      background: #162458;
+      margin: 3px;
+      overflow: hidden;
+      position: relative;
+
+      .icon {
+        width: 100px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #333333;
+        flex-direction: column;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .weather-info {
+        padding: 0 0 0 15px;
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: center;
+
+        .min-max {
+          padding: 10px 10px;
+          font-size: 20px;
+          color: #c7cef5;
+
+          strong {
+            font-weight: bold;
+            color: #fff;
+          }
+        }
+
+        .more-info {
+          padding: 0 10px;
+          font-size: 12px;
+        }
+      }
+
+      .primary-info {
+        display: flex;
+      }
+    }
+  }
+}
+
+.fork {
+  margin: 30px;
+  text-align: center;
+  font-size: 12px;
+  text-transform: uppercase;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+  }
+}
